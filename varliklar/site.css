@@ -1,0 +1,90 @@
+/* WordLumos sitesi. Renkler uygulamanın src/ui/theme.ts dosyasıyla aynı:
+   mavi Türkçe taraf, çivit uygulamanın kendisi, menekşe İngilizce taraf. */
+@font-face {
+  font-family: Newsreader;
+  src: url('Newsreader-600.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --bg: #F3F5FA;
+  --surface: #FFFFFF;
+  --border: #DDE2EE;
+  --text: #141833;
+  --muted: #525A78;
+  --faint: #7D849C;
+  --brand: #4B37BE;
+  --brand-soft: #EDEAFB;
+  --tr: #0F4FB5;
+  --serif: Newsreader, Georgia, 'Times New Roman', serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 var(--sans); }
+a { color: var(--brand); }
+img { max-width: 100%; height: auto; }
+
+.kap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.kap.dar { max-width: 720px; }
+
+/* Üst şerit */
+.ust { border-bottom: 1px solid var(--border); background: var(--bg); }
+.ust .kap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.marka { display: flex; align-items: center; gap: 10px; font: 600 22px/1 var(--serif); color: var(--text); text-decoration: none; }
+.marka img { border-radius: 8px; }
+.ust nav { display: flex; gap: 20px; }
+.ust nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+.ust nav a:hover { color: var(--brand); }
+
+/* Giriş */
+.kahraman { padding: 72px 0 40px; }
+.ust-baslik { margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: var(--brand); }
+.kahraman h1 { margin: 0; font: 600 clamp(40px, 7vw, 68px)/1.05 var(--serif); letter-spacing: -0.01em; }
+.kahraman h1 .tr { color: var(--tr); }
+.giris { max-width: 600px; margin: 24px 0 32px; font-size: 19px; color: var(--muted); }
+.dugme { display: inline-block; padding: 14px 26px; border-radius: 12px; background: var(--brand); color: #fff; font-weight: 600; text-decoration: none; }
+.dugme.sonuk { background: var(--brand-soft); color: var(--brand); }
+
+/* Ekran görüntüleri */
+.ekranlar .kap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; padding-bottom: 24px; }
+.ekranlar figure { margin: 0; }
+.ekranlar img { display: block; width: 100%; border-radius: 28px; border: 8px solid var(--text); background: var(--surface); }
+.ekranlar figcaption { margin-top: 12px; text-align: center; font-size: 15px; color: var(--muted); }
+
+/* Özellikler */
+.ozellikler { padding: 48px 0; }
+.ozellikler ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.ozellikler li { padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+.ozellikler h3 { margin: 0 0 8px; font: 600 22px/1.2 var(--serif); }
+.ozellikler p { margin: 0; color: var(--muted); font-size: 16px; }
+
+.paketler { padding: 8px 0 64px; }
+.paketler h2 { margin: 0 0 12px; font: 600 32px/1.2 var(--serif); }
+.paketler p { max-width: 720px; margin: 0; color: var(--muted); }
+
+/* Metin sayfaları: gizlilik ve destek */
+.metin { padding: 48px 0 64px; }
+.metin h1 { margin: 0 0 16px; font: 600 40px/1.15 var(--serif); }
+.metin h2 { margin: 36px 0 8px; font: 600 26px/1.2 var(--serif); }
+.metin p { margin: 0 0 14px; }
+details { padding: 16px 0; border-bottom: 1px solid var(--border); }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin: 10px 0 0; color: var(--muted); }
+
+/* Alt bilgi */
+.alt { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--faint); font-size: 14px; }
+.alt p { margin: 0 0 8px; }
+.alt a { color: var(--muted); }
+
+@media (max-width: 760px) {
+  .kahraman { padding: 48px 0 24px; }
+  /* Telefonda yana kaydırılan şerit; kenar boşluğu korunuyor, üçüncüsünün
+     ucu görünüyor ki kaydırılabildiği anlaşılsın. */
+  .ekranlar .kap { display: flex; gap: 16px; padding: 16px 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; }
+  .ekranlar figure { flex: 0 0 64%; scroll-snap-align: start; }
+  .ozellikler ul { grid-template-columns: 1fr; }
+  .ust nav { gap: 14px; }
+}
